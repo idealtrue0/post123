@@ -1,11 +1,29 @@
 package personal.post.domain;
 
+import jakarta.persistence.*;
 
+import java.util.List;
+
+@Entity
+@Table(name = "member")
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String UserId;
+
+    @Column(name = "user_id")
+    private String userId;
+
+    @Column(name = "nickname")
     private String nickname;
+
+    @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "nickname", fetch = FetchType.EAGER)
+    private List<Post> postList;
+
+
 
 
     public String getPassword() {
@@ -33,10 +51,10 @@ public class Member {
     }
 
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 }

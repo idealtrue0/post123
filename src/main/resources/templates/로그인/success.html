@@ -17,8 +17,11 @@
         <p >
             <a href="/membership/new">회원 가입</a>
             <a href="/members">회원 목록</a>
+        </p>
             <br>
-            <a href="/login">로그인</a>
+        <p>
+            <span th:text="'안녕하세요, ' + ${nickname} + '님!'"></span>
+            <a href="/">로그아웃</a>
         </p>
     </div>
 </div> <!-- /container -->
